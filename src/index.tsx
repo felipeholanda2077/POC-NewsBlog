@@ -4,13 +4,11 @@ import "./core/imports.css";
 import reportWebVitals from "./reportWebVitals";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import NotFound404 from "./views/NotFound404.view";
-import Contact from "./views/Contact.view";
 import Home from "./views/Home.view";
-import UserView from "./views/User.view";
-import CalView from "./views/Calc.view";
-import NavBar from "./components/NavBar";
 
 import GlobalStyles from "./core/globalStyles";
+import EditoresListView from "./views/EditoresList.view";
+import PostCreateView from "./views/PostCreate.view";
 
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement
@@ -19,12 +17,11 @@ const root = ReactDOM.createRoot(
 root.render(
   <React.StrictMode>
     <BrowserRouter>
-      <NavBar />
+      
       <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="contato" element={<Contact />} />
-          <Route path="usuario/:userId" element={<UserView />} />
-          <Route path="calc/:a/:b" element={<CalView />} />
+          <Route path="/editores" element={<EditoresListView />} />
+          <Route path="/posts/criar" element={<PostCreateView />} />
           <Route path="*" element={<NotFound404 />} />
       </Routes>
     </BrowserRouter>

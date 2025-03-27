@@ -1,18 +1,33 @@
+import Logo from '../../components/Logo';
+import NavBar from '../../components/NavBar';
+import SessionController from '../../components/SessionController';
+import * as DL from './Default.layout.styles'
+
 interface DefaultLayoutProps {
     children: React.ReactNode;
 }
 
 function DefaultLayout(props: DefaultLayoutProps) {
     return (
-        <div className="default-layout">
-            <header className="default-layout-header">
-                <h1>Default Layout</h1>
-            </header>
-            <main className="default-layout-content">{props.children}</main>
-            <footer className="default-layout-footer">
-                <p>&copy; 2023 Default Layout</p>
-            </footer>
-        </div>
+        <DL.Wrapper>
+            <DL.Header>
+                <Logo />
+            </DL.Header>
+            <DL.Main>
+                <DL.Navigation>
+                    <NavBar />
+                </DL.Navigation>
+                <DL.FeaturedContent>
+                    {props.children}
+                </DL.FeaturedContent>
+                <DL.Aside>
+                    <SessionController 
+                        name="Felipe Holanda"
+                        description='editor há 7 anos'
+                    />
+                </DL.Aside>
+            </DL.Main>
+        </DL.Wrapper>
     );
 }
 export default DefaultLayout;
