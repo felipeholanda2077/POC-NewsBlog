@@ -1,14 +1,17 @@
-import { Story, Meta } from '@storybook/react';
-import ImageUpload, { ImageUploadProps } from '../components/ImageUpload';
+import type { Meta, StoryObj } from '@storybook/react';
+import ImageUpload from '../components/ImageUpload';
 
-export default {
+const meta: Meta<typeof ImageUpload> = {
   title: 'Example/ImageUpload',
-  component: ImageUpload
-} as Meta;
+  component: ImageUpload,
+};
 
-const Template: Story<ImageUploadProps> = (args) => <ImageUpload {...args} />;
+export default meta;
 
-export const Default = Template.bind({})
-Default.args = {
-  label: 'Thumbnail do post'
-}
+type Story = StoryObj<typeof ImageUpload>;
+
+export const Default: Story = {
+  args: {
+    label: 'Thumbnail do post',
+  },
+};

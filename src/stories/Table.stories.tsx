@@ -74,21 +74,29 @@ export function Default() {
     {
       header: 'Artigo',
       accessorKey: 'title',
-      cell: ({ row, getValue }) => (
-        <div style={{ textAlign: 'left', display: 'flex', gap: 8, alignItems: 'center' }}>
-          <img width={24} height={24} src={row.original.author.avatar} alt={row.original.author.name} />
-          {getValue()}
-        </div>
-      ),
+      cell: ({ row, getValue }) => {
+        return (
+          <div style={{ textAlign: 'left', display: 'flex', gap: 8, alignItems: 'center' }}>
+            <img
+              width={24}
+              height={24}
+              src={row.original.author.avatar}
+              alt={row.original.author.name}
+            />
+            {getValue() as string}
+          </div>
+        );
+      },
     },
+      
     {
       header: 'Views',
       accessorKey: 'views',
       cell: ({ getValue }) => (
         <div style={{ textAlign: 'right', fontWeight: 700, fontFamily: '"Roboto mono", monospace' }}>
-          {getValue().toLocaleString('pt-br')}
+          {(getValue() as number).toLocaleString('pt-br')}
         </div>
-      ),
+      )      
     },
     {
       header: 'Conversões',
@@ -134,7 +142,7 @@ export function WithoutData() {
       cell: ({ row, getValue }) => (
         <div style={{ textAlign: 'left', display: 'flex', gap: 8, alignItems: 'center' }}>
           <img width={24} height={24} src={row.original.author.avatar} alt={row.original.author.name} />
-          {getValue()}
+          {(getValue() as string)}
         </div>
       ),
     },
@@ -143,7 +151,7 @@ export function WithoutData() {
       accessorKey: 'views',
       cell: ({ getValue }) => (
         <div style={{ textAlign: 'right', fontWeight: 700, fontFamily: '"Roboto mono", monospace' }}>
-          {getValue()?.toLocaleString('pt-br') || 0}
+          {(getValue() as number)?.toLocaleString('pt-br') || 0}
         </div>
       ),
     },

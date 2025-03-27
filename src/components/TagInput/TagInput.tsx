@@ -22,7 +22,7 @@ function TagsInput (props: TagInputProps) {
             handleAddition={props.onAdd}
             handleDelete={props.onDelete}
             allowDragDrop={false}
-            ãutofocus={false}
+            autofocus={false}
             tags={props.tags}
             delimiters={[KeyCodes.comma, KeyCodes.enter, KeyCodes.tab]}
         />

@@ -1,7 +1,8 @@
 import { StoryObj, Meta } from '@storybook/react';
 import Chart from '../components/Chart/Chart';
+import type { ChartData } from 'chart.js';
 
-const data: Chart.ChartData = {
+const data: ChartData<'line'> = {
   labels: ["Jan", "Fev", "Mar", "Abr", "Mai", "Jun"],
   datasets: [
     {
@@ -12,7 +13,7 @@ const data: Chart.ChartData = {
       borderColor: "#0099FF",
       borderWidth: 0.5,
       yAxisID: "cashflow",
-      position: "left",
+      //position: "left",
     },
     {
       label: 'Despesas',

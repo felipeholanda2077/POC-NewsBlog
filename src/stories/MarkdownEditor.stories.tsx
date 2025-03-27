@@ -1,12 +1,15 @@
-import { Story, Meta } from '@storybook/react';
-import MarkdownEditor, { MarkdownEditorProps } from '../components/MarkdownEditor';
+import type { Meta, StoryObj } from '@storybook/react';
+import MarkdownEditor from '../components/MarkdownEditor';
 
-export default {
+const meta: Meta<typeof MarkdownEditor> = {
   title: 'Example/MarkdownEditor',
   component: MarkdownEditor,
-} as Meta;
+};
 
-const Template: Story<MarkdownEditorProps> = (args) => <MarkdownEditor {...args} />;
+export default meta;
 
-export const Default = Template.bind({})
-Default.args = {}
+type Story = StoryObj<typeof MarkdownEditor>;
+
+export const Default: Story = {
+  args: {},
+};

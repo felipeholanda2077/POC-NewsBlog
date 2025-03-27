@@ -10,6 +10,8 @@ import {
   Legend,
   elements,
   Filler,
+  type ChartData,
+  ChartOptions,
 } from "chart.js";
 import { borderWidth, position, transparentize } from "polished";
 import styled from "styled-components";
@@ -28,44 +30,38 @@ ChartJS.register(
   Filler 
 );
 
-const options = {
+const options: ChartOptions<'line'> = {
   maintainAspectRatio: true,
   elements: {
     line: {
-        tension: 0
-    }
+      tension: 0,
+    },
   },
   plugins: {
     legend: {
       display: true,
-      position: 'bottom',
-      align: 'center',
+      position: "bottom", // tipo correto: "top" | "left" | "bottom" | "right" | "chartArea"
+      align: "center",    // tipo correto: "start" | "center" | "end"
       labels: {
         usePointStyle: true,
       },
     },
   },
   scales: {
-    xAxes: [
-        {
-            display: true,
-            gridLines: {
-
-            }
-
-        }
-    ],
+    x: {
+      display: true,
+      grid: {}, // gridLines virou grid
+    },
     cashflow: {
-      type: 'linear',
+      type: "linear",
       display: false,
-      position: 'left',
-    }
+      position: "left",
+    },
   },
-  
 };
 
 export interface ChartProps {
-    data: Chart.ChartData
+    data: ChartData<"line">;
     title: string
 }
 
@@ -79,7 +75,7 @@ export default function Chart({ data, title }: ChartProps ) {
       </div>
       {
         data 
-        ? <Line type="line" height={139} width={600} data={data} options={options} />
+        ? <Line height={139} width={600} data={data} options={options} />
         : <NoData height={139} />
       }
     </ChartWrapper>

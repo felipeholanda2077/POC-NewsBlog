@@ -1,4 +1,4 @@
-import usePageTitle from "../components/hooks/usePageTitle"
+import usePageTitle from "../core/hooks/usePageTitle"
 
 export default function NotFound404 () {
     usePageTitle('404')

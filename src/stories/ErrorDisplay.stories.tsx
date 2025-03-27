@@ -1,40 +1,43 @@
-import { Story, Meta } from '@storybook/react';
-import ErrorDisplay, { ErrorDisplayProps } from '../components/ErrorDisplay';
+import type { Meta, StoryObj } from '@storybook/react';
+import ErrorDisplay from '../components/ErrorDisplay';
 
-export default {
+const meta: Meta<typeof ErrorDisplay> = {
   title: 'Example/ErrorDisplay',
   component: ErrorDisplay,
   argTypes: {
     small: {
       control: {
-        type: 'boolean'
-      }
-    }
-  }
-} as Meta;
+        type: 'boolean',
+      },
+    },
+  },
+};
 
-const Template: Story<ErrorDisplayProps> = (args) =>
-  <div>
-    <ErrorDisplay {...args} />
-  </div>
+export default meta;
 
-export const Default = Template.bind({})
-Default.args = {}
+type Story = StoryObj<typeof ErrorDisplay>;
 
-export const CustomTitle = Template.bind({})
-CustomTitle.args = {
-  title: 'Houve um erro'
-}
+export const Default: Story = {
+  args: {},
+};
 
-export const CustomMessage = Template.bind({})
-CustomMessage.args = {
-  title: 'Houve um erro',
-  message: 'Falha na comunicação com o servidor'
-}
+export const CustomTitle: Story = {
+  args: {
+    title: 'Houve um erro',
+  },
+};
 
-export const Small = Template.bind({})
-Small.args = {
-  title: 'Houve um erro',
-  message: 'Falha na comunicação com o servidor',
-  small: true
-}
+export const CustomMessage: Story = {
+  args: {
+    title: 'Houve um erro',
+    message: 'Falha na comunicação com o servidor',
+  },
+};
+
+export const Small: Story = {
+  args: {
+    title: 'Houve um erro',
+    message: 'Falha na comunicação com o servidor',
+    small: true,
+  },
+};

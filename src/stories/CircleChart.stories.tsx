@@ -1,7 +1,7 @@
-import { Story, Meta } from '@storybook/react';
-import CircleChart, { CircleChartProps } from '../components/CircleChart';
+import type { Meta, StoryObj } from '@storybook/react';
+import CircleChart from '../components/CircleChart';
 
-export default {
+const meta: Meta<typeof CircleChart> = {
   title: 'Example/CircleChart',
   component: CircleChart,
   argTypes: {
@@ -9,16 +9,19 @@ export default {
       control: {
         type: 'range',
         min: 0,
-        max: 100
-      }
-    }
-  }
-} as Meta;
+        max: 100,
+      },
+    },
+  },
+};
 
-const Template: Story<CircleChartProps> = (args) => <CircleChart {...args} />;
+export default meta;
 
-export const Default = Template.bind({})
-Default.args = {
-  progress: 80,
-  size: 150
-}
+type Story = StoryObj<typeof CircleChart>;
+
+export const Default: Story = {
+  args: {
+    progress: 80,
+    size: 150,
+  },
+};

@@ -1,23 +1,23 @@
-import { Story, Meta } from '@storybook/react';
-import SessionController, { SessionControllerProps } from '../components/SessionController';
+import type { Meta, StoryObj } from '@storybook/react';
+import SessionController from '../components/SessionController';
 
-export default {
+const meta: Meta<typeof SessionController> = {
   title: 'Example/SessionController',
   component: SessionController,
   argTypes: {
     onLogout: {
-      action: 'logout'
-    }
-  }
-} as Meta;
+      action: 'logout',
+    },
+  },
+};
 
-const Template: Story<SessionControllerProps> = (args) =>
-  <div>
-    <SessionController {...args} />
-  </div>
+export default meta;
 
-export const Default = Template.bind({})
-Default.args = {
-  name: 'Daniel Bonfacio',
-  description: 'editor ha muito tempo'
-}
+type Story = StoryObj<typeof SessionController>;
+
+export const Default: Story = {
+  args: {
+    name: 'Daniel Bonfacio',
+    description: 'editor há muito tempo',
+  },
+};

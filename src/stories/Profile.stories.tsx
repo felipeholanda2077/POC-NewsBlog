@@ -1,16 +1,18 @@
-import { Story, Meta } from '@storybook/react';
-import Profile, { ProfileProps } from '../components/Profile';
+import type { Meta, StoryObj } from '@storybook/react';
+import Profile from '../components/Profile';
 
-export default {
+const meta: Meta<typeof Profile> = {
   title: 'Example/Profile',
-  component: Profile
-} as Meta;
+  component: Profile,
+};
 
-const Template: Story<ProfileProps> = (args) =>
-  <Profile {...args} />
+export default meta;
 
-export const Default = Template.bind({})
-Default.args = {
-  name: 'Daniel Bonfacio',
-  description: 'editor ha muito tempo'
-}
+type Story = StoryObj<typeof Profile>;
+
+export const Default: Story = {
+  args: {
+    name: 'Daniel Bonfacio',
+    description: 'editor há muito tempo',
+  },
+};

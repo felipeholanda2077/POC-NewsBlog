@@ -1,49 +1,56 @@
-import { Story, Meta } from '@storybook/react';
-import ProgressBar, { ProgressBarProps } from '../components/ProgressBar/ProgressBar';
+import type { Meta, StoryObj } from '@storybook/react';
+import ProgressBar from '../components/ProgressBar/ProgressBar';
 
-export default {
+const meta: Meta<typeof ProgressBar> = {
   title: 'Example/ProgressBar',
   component: ProgressBar,
-} as Meta;
+};
 
-const Template: Story<ProgressBarProps> = (args) => <ProgressBar {...args} />;
+export default meta;
 
-export const Primary = Template.bind({})
-Primary.args = {
-  title: 'Você tem certeza?',
-  progress: 50,
-  theme: 'primary',
-  width: 375
-}
+type Story = StoryObj<typeof ProgressBar>;
 
-export const Secondary = Template.bind({})
-Secondary.args = {
-  title: 'Você tem certeza?',
-  progress: 50,
-  theme: 'secondary',
-  width: 375
-}
+export const Primary: Story = {
+  args: {
+    title: 'Você tem certeza?',
+    progress: 50,
+    theme: 'primary',
+    width: 375,
+  },
+};
 
-export const Complete = Template.bind({})
-Complete.args = {
-  title: 'Você tem certeza?',
-  progress: 100,
-  theme: 'primary',
-  width: 375
-}
+export const Secondary: Story = {
+  args: {
+    title: 'Você tem certeza?',
+    progress: 50,
+    theme: 'secondary',
+    width: 375,
+  },
+};
 
-export const ZeroProgress = Template.bind({})
-ZeroProgress.args = {
-  title: 'Você tem certeza?',
-  progress: 0,
-  theme: 'secondary',
-  width: 375
-}
+export const Complete: Story = {
+  args: {
+    title: 'Você tem certeza?',
+    progress: 100,
+    theme: 'primary',
+    width: 375,
+  },
+};
 
-export const ProgressInHalfOfText = Template.bind({})
-ProgressInHalfOfText.args = {
-  title: 'Você tem certeza?',
-  progress: 0,
-  theme: 'secondary',
-  width: 375
-}
+export const ZeroProgress: Story = {
+  args: {
+    title: 'Você tem certeza?',
+    progress: 0,
+    theme: 'secondary',
+    width: 375,
+  },
+};
+
+export const ProgressInHalfOfText: Story = {
+  args: {
+    title: 'Você tem certeza?',
+    progress: 50, // Corrigido: estava com progress 0, mas o nome sugere "metade"
+    theme: 'secondary',
+    width: 375,
+  },
+};
