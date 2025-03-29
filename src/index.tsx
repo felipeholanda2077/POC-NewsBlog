@@ -21,7 +21,7 @@ root.render(
       <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/editores" element={<EditoresListView />} />
-          <Route path="/posts/criar" element={<PostCreateView />} />
+          <Route path="/post/criar" element={<PostCreateView />} />
           <Route path="*" element={<NotFound404 />} />
       </Routes>
     </BrowserRouter>
